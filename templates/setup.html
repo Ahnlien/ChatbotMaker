@@ -1,0 +1,79 @@
+<head>
+    <title>Web App Setup</title>
+    <style>
+        body {
+            background-color: rgb(21, 41, 113);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        h1 {
+            text-align: center;
+            position: absolute;
+            top: 30%;
+            width: 100%;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        label {
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 5px;
+            width: 250px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: rgb(255, 255, 255);
+            color: rgb(54, 54, 54);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+    <script>
+        // JavaScript code
+
+        // Show the loading overlay and change the button into a loading animation
+        function showLoadingOverlay() {
+            document.getElementById("loading-overlay").style.display = "flex";
+            document.getElementById("submit_btn").value = ""; // Remove the text from the button
+            document.getElementById("submit_btn").disabled = true; // Disable the button
+        }
+
+        // Hide the loading overlay and restore the button
+        function hideLoadingOverlay() {
+            document.getElementById("loading-overlay").style.display = "none";
+            document.getElementById("submit_btn").value = "Submit"; // Restore the button text
+            document.getElementById("submit_btn").disabled = false; // Enable the button
+        }
+    </script>
+</head>
+<body>
+    <h1>ChatBot Setup</h1>
+    <form method="POST" action="/">
+        <label for="app_name">ChatBot Name</label>
+        <input type="text" name="app_name" id="app_name" required>
+        <input type="submit" value="Submit">
+    </form>
+    <div id="loading-overlay">
+        <div id="loading-spinner"></div>
+    </div>
+</body>
+</html>
